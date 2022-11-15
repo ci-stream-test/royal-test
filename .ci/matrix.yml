@@ -27,10 +27,14 @@ stages:
     node-build:
         strategy:
           matrix:
-            node: ["12.13.1", "10.11.0"]
+            var1: ['OFF', 'ON']
+            var2: [ { a: '1', b: '2' }, { a: '3', b: '4' } ]
         steps:
           - run: |
                 # matrix上下文可以用于控制环境依赖，例如node版本指定111
                 # export PATH=/data/bkdevops/apps/nodejs/${{ matrix.node }}/bin:$PATH
-                echo ${{ matrix.node }}
+                echo ${{ matrix.var1 }}
+                echo ${{ matrix.var2 }}
+                echo ${{ matrix.var2.a }}
+                echo ${{ matrix.var2.b }}
             name: node.js编译
