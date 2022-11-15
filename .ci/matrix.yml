@@ -11,9 +11,5 @@ stages:
             var1: ['OFF', 'ON']
             var2: [ { a: '1', b: '2' }, { a: '3', b: '4' } ]
         steps:
-          - run: |
-                echo ${{ matrix.var1 }}
-                echo ${{ matrix.var2 }}
-                echo ${{ matrix.var2.a }}
-                echo ${{ matrix.var2.b }}
+          - run: echo ${{ matrix.var2.a }}
             name: node.js编译
